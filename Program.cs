@@ -1,92 +1,70 @@
-﻿namespace project_1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace project2
 {
     internal class Program
     {
-        static void Main(string [] args)
-        {
+        private static object statr;
 
-            Console.WriteLine("Welcome to project prime numbers");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("welcome to project perfect number");
             Console.WriteLine("Enter your start");
-            int n1 = int.Parse(Console.ReadLine());
+            int start = int.Parse(Console.ReadLine());
             //allow the user to input the start range
             Console.WriteLine("Enter your end");
-            int n2 = int.Parse(Console.ReadLine());
+            int end = int.Parse(Console.ReadLine());
             //allow the user to input the end range
-
-            for (int i = n1; i <= n2; i++) 
-                //loop that allow to check all prime numbers in the range which given by user
-
+            for (int i = start; i <= end; i++)
+                //loop that allow to check all numbers in the range which given by user
             {
-                if (i < 2)
+                if (i == 0)
                 {
                     continue;
                 }
-                //Neglect negative numbers , number one and zero
-                bool prime = true;   
-                //assume every number is prime
-                for (int j = 2; j <= (i / 2); j++)
-                    //loop to apply the prime number rule on all given numbers
+                //Neglect number zero
+                int sum = 0;
+                for (int j = 1; j <= (i / 2); j++)
+                    //loop that apply the perfect number rule on all given numbers
                 {
-                    if (i % j == 0 && i > j)
+                    
+                    if (i % j == 0)
                     {
-                        prime = false;
+                        sum += j;
+                    }
+                    //if reminder = 0 then add the factor (j) to the sum
+
+                    if (sum > i)
+
+                    {
                         break;
                     }
-                    //if the reminder = 0 then make it false 
+                    //if the sum of the factories is grater the number neglect it and back to loop
                 }
-                  //if we have a reminder then the number is prime
-                    if (prime)
+                    if (sum == i)
                     {
-                        Console.WriteLine(" prime number is a {0}", i);
+                        Console.WriteLine(i + " is perfect number");
                     }
-                    //if the number is prime print it
+                    //if sum of the factories is equal to the number then print it
+                    
+                 
+                  
                 
-                Console.Write("\n");
-                }
-     
-            {
-
             }
 
-            
 
-        
 
 
 
 
 
         }
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+    
+
